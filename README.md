@@ -1,17 +1,21 @@
 # Docker images for Gamemaker Ubuntu
-This is an ubuntu20-based image containing necessary libraries to run GM Ubuntu build games in a headless way.
 
+Links:
 * [Github](https://github.com/meseta/gamemaker-ubuntu-base)
 * [Dockerhub](https://hub.docker.com/r/meseta/gmrunner_base)
+
+This is an ubuntu20-based image containing necessary libraries to run GM Ubuntu build games in a headless way.
 
 To use, create your own Dockerfile that inherits from this base image, and copy your compiled gamemaker game into it.
 
 ```dockerfile
 FROM meseta/gmrunner_base:v1.1.0
 
-COPY . .
+WORKDIR /workdir
+COPY yourapp.AppImage .
 
-CMD ["./yourgame"]
+ENV APPIMAGE_EXTRACT_AND_RUN=1
+CMD ["./yourapp.AppImage"]
 ```
 
 ## Version History
