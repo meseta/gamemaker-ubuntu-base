@@ -1,6 +1,6 @@
 services:
   build:
-    image: meseta/gmrunner_base:v1.1.0
+    image: meseta/gmrunner_base:v1.2.0
     build:
       dockerfile: Dockerfile
    
